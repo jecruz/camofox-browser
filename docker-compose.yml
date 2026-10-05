@@ -5,7 +5,8 @@ services:
     image: camofox-browser:latest
     container_name: camofox-browser
     ports:
-      - "9377:3000"
+      # Loopback only: the API has no auth on browsing endpoints (Redmine #2137).
+      - "127.0.0.1:9377:3000"
     environment:
       - CAMOFOX_PORT=3000
       - NODE_ENV=production
